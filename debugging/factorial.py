@@ -2,20 +2,19 @@
 import sys
 
 def factorial(n):
-    if n < 0:
-        return None  # Le factoriel n'est pas défini pour les nombres négatifs
     result = 1
-    for i in range(1, n + 1):
-        result *= i
+    while n > 1:
+        result *= n
+        n -= 1  # Décrémente n à chaque itération
     return result
 
 if len(sys.argv) > 1:
     try:
         n = int(sys.argv[1])
-        f = factorial(n)
-        if f is None:
+        if n < 0:
             print("Le factoriel n'est pas défini pour les nombres négatifs.")
         else:
+            f = factorial(n)
             print(f)
     except ValueError:
         print("Veuillez entrer un nombre entier valide.")
